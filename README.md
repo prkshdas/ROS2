@@ -4,8 +4,7 @@
 ## Using Docker image ROS2 jazzy
 
 ### Starting up (beginning the session)
-
-- Enable Display Forwarding (Need if rebooted the PC)
+Enable Display Forwarding (Need if rebooted the PC)
 
 ```
 xhost +local:root
