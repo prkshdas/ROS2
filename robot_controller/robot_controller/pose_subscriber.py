@@ -1,7 +1,7 @@
 #!usr/bin/env/python3
 
 import rclpy
-from rclpy import Node
+from rclpy.node import Node
 from turtlesim.msg import Pose
 
 
@@ -17,7 +17,7 @@ class PoseSubscriberNode(Node):
         
 
 # main function
-def main(args=Node):
+def main(args=None):
     rclpy.init(args=args)
     node = PoseSubscriberNode()
     rclpy.spin(node)
