@@ -21,8 +21,8 @@ def generate_launch_description():
         
         # Node 2 : A GUI slider tool to manually test our joints
         Node(
-            package='joint_state_publisher_gui',
-            executable='joint_state_publisher_gui'
+            package='inverted_pendulum',
+            executable='physics_engine'
         ),
         
         # Node 3 : Open RViz for 3D visualization
