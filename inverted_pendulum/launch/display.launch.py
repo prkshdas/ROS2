@@ -12,20 +12,26 @@ def generate_launch_description():
         robot_desc = infp.read()
         
     return LaunchDescription([
-        # Node 1 : Broadcaste the 3D model to the rest of the ROS
+        # Node 1 : Broadcaste the 3D model
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
             parameters=[{'robot_description' : robot_desc}]
         ),
         
-        # Node 2 : A GUI slider tool to manually test our joints
+        # Node 2 : Physics engine (Gravity)
         Node(
             package='inverted_pendulum',
             executable='physics_engine'
         ),
         
-        # Node 3 : Open RViz for 3D visualization
+        #Node 3 : PID Controller
+        Node(
+            package='inverted_pendulum',
+            executable='pid_controller'
+        ),
+        
+        # Node 4 : Open RViz for 3D visualization
         Node(
             package='rviz2',
             executable='rviz2'
