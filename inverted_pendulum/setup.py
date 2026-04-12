@@ -30,7 +30,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'physics_engine = pendulum_project.physics_engine:main'
+            'physics_engine = inverted_pendulum.physics_engine:main'
         ],
     },
 )
