@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<robot name="simple_arm">
+
+    <!-- Base (shoulder) -->
+    <link name="base_link"/>
+
+    <!-- Upper arm -->
+    <link name="upper_arm">
+        <visual>
+            <origin xyz="0 0 0.15" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.04" length="0.3"/>
+            </geometry>
+            <material name="blue">
+                <color rgba="0 0 1 1"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Forearm -->
+    <link name="forearm">
+        <visual>
+            <origin xyz="0 0 0.15" rpy="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.035" length="0.3"/>
+            </geometry>
+            <material name="green">
+                <color rgba="0 1 0 1"/>
+            </material>
+        </visual>
+    </link>
+
+    <!-- Shoulder (fixed) -->
+    <joint name="shoulder_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="upper_arm"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Elbow (this is what you'll move) -->
+    <joint name="elbow_joint" type="revolute">
+        <parent link="upper_arm"/>
+        <child link="forearm"/>
+        <!-- place joint at end of upper arm -->
+        <origin xyz="0 0 0.3" rpy="0 0 0"/>
+        
+        <!-- rotation axis (like bending elbow) -->
+        <axis xyz="0 1 0"/>
+        
+        <!-- limits -->
+        <limit lower="-1.57" upper="1.57" effort="1" velocity="1"/>
+    </joint>
+
+</robot>
